@@ -1,0 +1,6 @@
+@Tripix_HostAddress = http://localhost:5008
+
+GET {{Tripix_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
