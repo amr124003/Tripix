@@ -1,24 +1,41 @@
-name: Deploy to Monster ASP.NET via FTP
+name: Deploy ASP.NET API to Monster ASP.NET
 
 on:
   push:
     branches:
-      - main  # تغيير الفرع حسب الحاجة
+      - master  
 
 jobs:
   deploy:
-    name: Upload Files via FTP
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: 🛎 Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Deploy to Monster ASP.NET via FTP
+      - name: 🏗️ Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0'  
+
+      - name: 🔨 Restore Dependencies
+        run: dotnet restore
+
+      - name: 🏗️ Build and Publish
+        run: |
+          dotnet publish -c Release -o publish_output
+
+      - name: ⏳ Stop App (Create app_offline.htm)
+        run: echo "Site is updating..." > publish_output/app_offline.htm
+
+      - name: 🚀 Deploy to Monster ASP.NET via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: "./publish/"  # تأكد إن ده مسار ملفات الـ Publish في المشروع
-          server-dir: "/httpdocs/"  # المسار الأساسي لموقعك على Monster ASP.NET
+          local-dir: "./publish_output/"
+          server-dir: "/httpdocs/"
+
+      - name: 🔄 Restart App (Remove app_offline.htm)
+        run: rm -f publish_output/app_offline.htm
