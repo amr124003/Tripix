@@ -1,0 +1,24 @@
+name: Deploy to Monster ASP.NET via FTP
+
+on:
+  push:
+    branches:
+      - main  # تغيير الفرع حسب الحاجة
+
+jobs:
+  deploy:
+    name: Upload Files via FTP
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Deploy to Monster ASP.NET via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: "./publish/"  # تأكد إن ده مسار ملفات الـ Publish في المشروع
+          server-dir: "/httpdocs/"  # المسار الأساسي لموقعك على Monster ASP.NET
