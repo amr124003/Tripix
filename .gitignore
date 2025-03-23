@@ -3,6 +3,8 @@ bin/
 obj/
 out/
 
+.env
+
 # ملفات الإعدادات المحلية
 appsettings.Development.json
 appsettings.Local.json
