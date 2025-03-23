@@ -1,49 +1,9 @@
-# ملفات الـ Build
 bin/
 obj/
+.vs/
 out/
-
-.env
-
-# ملفات الإعدادات المحلية
-appsettings.Development.json
-appsettings.Local.json
-secrets.json
-
-# ملفات الـ User-specific
-*.user
-*.suo
-*.vs
-.vscode/
-.idea/
+*.dll
+*.exe
 *.log
 *.cache
-
-# ملفات الـ Debugging & Testing
-TestResults/
-*.pdb
-*.dotCover
-
-# ملفات النظام
-.DS_Store
-Thumbs.db
-
-# ملفات NuGet
-*.nupkg
-packages/
-.nuget/
-
-# ملفات الـ Logs & Temporary
-logs/
-*.log
-*.tmp
-*.swp
-
-# ملفات الـ Publish (لو بتعمل `dotnet publish` محليًا)
-publish/
-dist/
-
-# Node.js (لو عندك Angular أو React مع الـ API)
 node_modules/
-npm-debug.log
-yarn-error.log
