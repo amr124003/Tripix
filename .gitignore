@@ -1,51 +1,47 @@
-# 🛑 استبعاد ملفات ومجلدات الـ .NET
+# ملفات الـ Build
 bin/
 obj/
-*.user
-*.suo
-*.vs/
-*.vscode/
-*.csproj.user
-*.db
-*.bak
-*.swp
-*.log
+out/
 
-# 🔥 استبعاد الملفات المؤقتة والمخرجات
-*.tmp
-*.cache
-*.pid
-*.seed
-*.orig
-*.rej
-
-# 📂 استبعاد ملفات الـ Angular
-Tripix/ClientApp/node_modules/
-Tripix/ClientApp/dist/
-Tripix/ClientApp/.angular/
-Tripix/ClientApp/.npm/
-
-# 🗃️ استبعاد إعدادات بيئة العمل
-appsettings.json
+# ملفات الإعدادات المحلية
 appsettings.Development.json
-.env
+appsettings.Local.json
 secrets.json
 
-# 📦 استبعاد ملفات باكيجات NuGet
-*.nupkg
-packages/
-project.lock.json
+# ملفات الـ User-specific
+*.user
+*.suo
+*.vs
+.vscode/
+.idea/
+*.log
+*.cache
 
-# 🏗️ استبعاد ملفات البناء Build
-Tripix/bin/
-Tripix/obj/
-Tripix/Properties/launchSettings.json
-Tripix/wwwroot/lib/
+# ملفات الـ Debugging & Testing
+TestResults/
+*.pdb
+*.dotCover
 
-# 📌 استبعاد مجلدات النظام وملفات النسخ الاحتياطي
+# ملفات النظام
 .DS_Store
 Thumbs.db
-Tripix/bin/
-Tripix/obj/
-.env
-appsettings.json
+
+# ملفات NuGet
+*.nupkg
+packages/
+.nuget/
+
+# ملفات الـ Logs & Temporary
+logs/
+*.log
+*.tmp
+*.swp
+
+# ملفات الـ Publish (لو بتعمل `dotnet publish` محليًا)
+publish/
+dist/
+
+# Node.js (لو عندك Angular أو React مع الـ API)
+node_modules/
+npm-debug.log
+yarn-error.log
