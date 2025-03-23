@@ -14,4 +14,4 @@ REM نشر المشروع في مجلد out
 dotnet publish --configuration Release --output out
 
 REM تشغيل الـ API
-dotnet out\اسم_المشروع.dll
+dotnet out\Tripix.dll
