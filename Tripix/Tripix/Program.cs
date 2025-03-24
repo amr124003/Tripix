@@ -1,6 +1,11 @@
 using DotNetEnv;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 using Tripix.Context;
+using Tripix.SEEDING;
 using Tripix.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +18,9 @@ builder.Services.AddCors(options =>
                         .AllowAnyHeader()
                         .WithExposedHeaders("Access-Control-Allow-Origin")); // ﬂ‘› «·ÂÌœ—
 });
+
+builder.Configuration.AddUserSecrets<Program>();
+
 
 Env.Load();
 
@@ -28,17 +36,54 @@ builder.Services.AddDbContext<ApplicationDbcontext>(options =>
 });
 
 
+
+
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
+{
+    options.Password.RequireDigit = true;
+    options.Password.RequiredLength = 8;
+    options.Password.RequireUppercase = true;
+    options.Password.RequireLowercase = true;
+    options.Password.RequireNonAlphanumeric = true;
+}).AddEntityFrameworkStores<ApplicationDbcontext>()
+   .AddDefaultTokenProviders();
+
+var JwtSecret = builder.Configuration["JWT:Secret"];
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.RequireHttpsMetadata = true;
+        options.SaveToken = true;
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtSecret)),
+            ValidateIssuer = false,
+            ValidateAudience = false
+        };
+    });
+
+
+
+builder.Services.AddAuthorization();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-//  — Ì» «·‹ Middleware „Â„ Ãœ«° ÷⁄ UseCors ﬁ»· √Ì ‘Ì¡ ¬Œ—
+var scope = app.Services.CreateScope();
+await Seedrole.InitializeAsync(scope.ServiceProvider);
+await SeedSuperAdmin.InitializeAsync(scope.ServiceProvider);
+
+
 app.UseCors("AllowAngularApp");
 app.UseHttpsRedirection();
 app.UseAuthorization();
+app.UseAuthentication();
 app.MapControllers();
+
 
 if (app.Environment.IsDevelopment())
 {

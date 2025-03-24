@@ -193,3 +193,5 @@ F:\Gaduation Project\Website\Backend\Tripix\Tripix\obj\Debug\net8.0\Tripix.sourc
 F:\Gaduation Project\Website\Backend\Tripix\Tripix\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
 F:\Gaduation Project\Website\Backend\Tripix\Tripix\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
 F:\Gaduation Project\Website\Backend\Tripix\Tripix\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+F:\Gaduation Project\Website\Backend\Tripix\Tripix\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+F:\Gaduation Project\Website\Backend\Tripix\Tripix\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

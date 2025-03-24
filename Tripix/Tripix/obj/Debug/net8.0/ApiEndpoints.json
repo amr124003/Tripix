@@ -1,5 +1,79 @@
 [
   {
+    "ContainingType": "Tripix.Controllers.AuthController",
+    "Method": "GetAdmins",
+    "RelativePath": "api/Auth",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Tripix.Controllers.AuthController",
+    "Method": "AddAdmin",
+    "RelativePath": "api/Auth/AddAdmin",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Tripix.View_Models.AddAdminModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Tripix.Controllers.AuthController",
+    "Method": "AsignRole",
+    "RelativePath": "api/Auth/AssignRole",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Tripix.View_Models.AssignRoleModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Tripix.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Tripix.View_Models.LoginModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Tripix.Controllers.AuthController",
+    "Method": "Register",
+    "RelativePath": "api/Auth/Register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Tripix.View_Models.RegisterModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Tripix.Controllers.ChatbotController",
     "Method": "AskChatbot",
     "RelativePath": "api/Chatbot/ask",
@@ -16,22 +90,6 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "OcrController",
-    "Method": "UploadImage",
-    "RelativePath": "api/Ocr/upload",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "file",
-        "Type": "Microsoft.AspNetCore.Http.IFormFile",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "Tripix.Controllers.OTPController",
     "Method": "SendOtp",
     "RelativePath": "api/OTP/send-otp",
@@ -41,7 +99,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "Tripix.Controllers.OtpRequest",
+        "Type": "Tripix.View_Models.OtpRequest",
         "IsRequired": true
       }
     ],

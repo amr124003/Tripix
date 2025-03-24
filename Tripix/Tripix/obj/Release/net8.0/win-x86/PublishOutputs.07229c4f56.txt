@@ -14,6 +14,7 @@ F:\Gaduation Project\Website\Backend\Tripix\Tripix\obj\Release\net8.0\win-x86\Pu
 F:\Gaduation Project\Website\Backend\Tripix\Tripix\obj\Release\net8.0\win-x86\PubTmp\Out\Microsoft.AspNetCore.Cryptography.Internal.dll
 F:\Gaduation Project\Website\Backend\Tripix\Tripix\obj\Release\net8.0\win-x86\PubTmp\Out\Microsoft.AspNetCore.DataProtection.dll
 F:\Gaduation Project\Website\Backend\Tripix\Tripix\obj\Release\net8.0\win-x86\PubTmp\Out\Microsoft.AspNetCore.DataProtection.Abstractions.dll
+F:\Gaduation Project\Website\Backend\Tripix\Tripix\obj\Release\net8.0\win-x86\PubTmp\Out\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 F:\Gaduation Project\Website\Backend\Tripix\Tripix\obj\Release\net8.0\win-x86\PubTmp\Out\Microsoft.Bcl.AsyncInterfaces.dll
 F:\Gaduation Project\Website\Backend\Tripix\Tripix\obj\Release\net8.0\win-x86\PubTmp\Out\Microsoft.Bcl.TimeProvider.dll
 F:\Gaduation Project\Website\Backend\Tripix\Tripix\obj\Release\net8.0\win-x86\PubTmp\Out\Microsoft.Data.SqlClient.dll

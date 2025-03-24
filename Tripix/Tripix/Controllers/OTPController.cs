@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿#nullable disable
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
+using Tripix.View_Models;
 
 namespace Tripix.Controllers
 {
@@ -83,8 +85,5 @@ namespace Tripix.Controllers
 
         }
     }
-    public class OtpRequest
-    {
-        public string Email { get; set; }
-    }
+
 }

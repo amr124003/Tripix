@@ -182,3 +182,4 @@ F:\Gaduation Project\Website\Backend\Tripix\Tripix\obj\Release\net8.0\win-x86\re
 F:\Gaduation Project\Website\Backend\Tripix\Tripix\obj\Release\net8.0\win-x86\Tripix.pdb
 F:\Gaduation Project\Website\Backend\Tripix\Tripix\obj\Release\net8.0\win-x86\Tripix.genruntimeconfig.cache
 F:\Gaduation Project\Website\Backend\Tripix\Tripix\obj\Release\net8.0\win-x86\ref\Tripix.dll
+F:\Gaduation Project\Website\Backend\Tripix\Tripix\bin\Release\net8.0\win-x86\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll

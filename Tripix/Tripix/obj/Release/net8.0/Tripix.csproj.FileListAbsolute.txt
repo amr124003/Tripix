@@ -194,3 +194,4 @@ F:\Gaduation Project\Website\Backend\Tripix\Tripix\obj\Release\net8.0\staticweba
 F:\Gaduation Project\Website\Backend\Tripix\Tripix\bin\Release\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
 F:\Gaduation Project\Website\Backend\Tripix\Tripix\bin\Release\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
 F:\Gaduation Project\Website\Backend\Tripix\Tripix\bin\Release\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+F:\Gaduation Project\Website\Backend\Tripix\Tripix\bin\Release\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
