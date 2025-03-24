@@ -8,8 +8,8 @@ namespace Tripix.Controllers
     [ApiController]
     public class ChatbotController : ControllerBase
     {
-        private readonly string mistralApiKey = "m1Vm4FiPzq6BllvFHDHVrau9QR35fulR";
-        private readonly string cohereApiKey = "c36Ea91L5KWkMg2G0nYVBJx2dFuYGPFQsjyPEi3L";
+        private readonly string mistralApiKey = Environment.GetEnvironmentVariable("mistralApiKey");
+        private readonly string cohereApiKey = Environment.GetEnvironmentVariable("cohereApiKey");
 
         private static readonly List<QuestionAnswer> QAList = new()
         {

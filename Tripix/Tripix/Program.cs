@@ -24,7 +24,7 @@ builder.Configuration.AddEnvironmentVariables();
 builder.Services.AddHttpClient<bininfoRepo>();
 builder.Services.AddDbContext<ApplicationDbcontext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("constr"));
+    options.UseSqlServer(Environment.GetEnvironmentVariable("ConnectionString"));
 });
 
 

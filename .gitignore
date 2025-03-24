@@ -1,3 +1,18 @@
-
+# Visual Studio specific
 .vs/
+*.user
+*.suo
+*.psess
+*.vsp
+*.code-workspace
+*.sln.cache
+
+# Rider specific
+.idea/
+*.iml
+
+# Build outputs
+bin/
+obj/
+out/
 
