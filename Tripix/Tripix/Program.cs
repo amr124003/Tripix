@@ -48,12 +48,12 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 }).AddEntityFrameworkStores<ApplicationDbcontext>()
    .AddDefaultTokenProviders();
 
-var JwtSecret = builder.Configuration["JWT:Secret"];
+var JwtSecret = Environment.GetEnvironmentVariable("JWTSecret");
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
-        options.RequireHttpsMetadata = true;
+        options.RequireHttpsMetadata = false;
         options.SaveToken = true;
         options.TokenValidationParameters = new TokenValidationParameters
         {

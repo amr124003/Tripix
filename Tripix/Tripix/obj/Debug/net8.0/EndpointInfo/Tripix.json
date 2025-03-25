@@ -273,33 +273,49 @@
   "components": {
     "schemas": {
       "AddAdminModel": {
+        "required": [
+          "email",
+          "password",
+          "username"
+        ],
         "type": "object",
         "properties": {
           "username": {
-            "type": "string",
-            "nullable": true
+            "maxLength": 20,
+            "minLength": 3,
+            "pattern": "^[a-zA-Z0-9_]+$",
+            "type": "string"
           },
           "email": {
+            "minLength": 1,
             "type": "string",
-            "nullable": true
+            "format": "email"
           },
           "password": {
+            "maxLength": 20,
+            "minLength": 8,
+            "pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]+$",
             "type": "string",
-            "nullable": true
+            "format": "password"
           }
         },
         "additionalProperties": false
       },
       "AssignRoleModel": {
+        "required": [
+          "email",
+          "role"
+        ],
         "type": "object",
         "properties": {
           "email": {
+            "minLength": 1,
             "type": "string",
-            "nullable": true
+            "format": "email"
           },
           "role": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -345,47 +361,75 @@
         "additionalProperties": false
       },
       "LoginModel": {
+        "required": [
+          "email",
+          "password"
+        ],
         "type": "object",
         "properties": {
           "email": {
+            "minLength": 1,
             "type": "string",
-            "nullable": true
+            "format": "email"
           },
           "password": {
+            "maxLength": 25,
+            "minLength": 8,
+            "pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]+$",
             "type": "string",
-            "nullable": true
+            "format": "password"
+          },
+          "rememberMe": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
       },
       "OtpRequest": {
+        "required": [
+          "email"
+        ],
         "type": "object",
         "properties": {
           "email": {
+            "minLength": 1,
             "type": "string",
-            "nullable": true
+            "format": "email"
           }
         },
         "additionalProperties": false
       },
       "RegisterModel": {
+        "required": [
+          "confirmPassword",
+          "email",
+          "password",
+          "username"
+        ],
         "type": "object",
         "properties": {
           "username": {
-            "type": "string",
-            "nullable": true
+            "maxLength": 20,
+            "minLength": 3,
+            "pattern": "^[a-zA-Z0-9_]+$",
+            "type": "string"
           },
           "email": {
+            "minLength": 1,
             "type": "string",
-            "nullable": true
+            "format": "email"
           },
           "password": {
+            "maxLength": 25,
+            "minLength": 8,
+            "pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]+$",
             "type": "string",
-            "nullable": true
+            "format": "password"
           },
           "confirmPassword": {
+            "minLength": 1,
             "type": "string",
-            "nullable": true
+            "format": "password"
           }
         },
         "additionalProperties": false

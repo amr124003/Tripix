@@ -15,14 +15,13 @@ namespace Tripix.Controllers
     public class AuthController : ControllerBase
     {
         private readonly UserManager<IdentityUser> userManager;
-        private readonly IConfiguration _configuration;
+
         private readonly SignInManager<IdentityUser> signinmanger;
         private readonly RoleManager<IdentityRole> rolemanger;
 
-        public AuthController ( UserManager<IdentityUser> userManager, IConfiguration configuration, SignInManager<IdentityUser> signinmanger, RoleManager<IdentityRole> rolemanger )
+        public AuthController ( UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signinmanger, RoleManager<IdentityRole> rolemanger )
         {
             this.userManager = userManager;
-            _configuration = configuration;
             this.signinmanger = signinmanger;
             this.rolemanger = rolemanger;
         }
@@ -44,7 +43,7 @@ namespace Tripix.Controllers
 
             await userManager.AddToRoleAsync(user, "User");
 
-            var token = GenerateJwtToken(user);
+            var token = GenerateJwtToken(user, false);
 
             return Ok(new { token });
         }
@@ -70,7 +69,7 @@ namespace Tripix.Controllers
                 return Unauthorized(new { message = "Invalid Credentials" });
             }
 
-            var token = GenerateJwtToken(user);
+            var token = GenerateJwtToken(user, model.RememberMe);
 
             return Ok(new { token });
         }
@@ -129,9 +128,9 @@ namespace Tripix.Controllers
             return Ok(result);
         }
 
-        private string GenerateJwtToken ( IdentityUser user )
+        private string GenerateJwtToken ( IdentityUser user, bool RememberMe )
         {
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("JWTSecret")));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var roles = userManager.GetRolesAsync(user).Result;
@@ -143,11 +142,13 @@ namespace Tripix.Controllers
             new Claim(ClaimTypes.NameIdentifier, user.Id)
             }.ToList();
 
+            var exp = RememberMe ? DateTime.UtcNow.AddDays(15) : DateTime.UtcNow.AddHours(1);
+
             claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
 
             var token = new JwtSecurityToken(
                 claims: claims,
-                expires: DateTime.UtcNow.AddHours(1),
+                expires: exp,
                 signingCredentials: creds);
 
             return new JwtSecurityTokenHandler().WriteToken(token);
